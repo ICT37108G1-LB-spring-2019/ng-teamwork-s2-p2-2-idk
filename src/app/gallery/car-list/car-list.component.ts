@@ -8,7 +8,7 @@ import { tap, delay } from "rxjs/operators";
   templateUrl: "./car-list.component.html"
 })
 export class CarListComponent implements OnInit {
-  car: Mercedes[];
+  cars: Mercedes[];
   loading: boolean = false;
 
   constructor(private carService: CarService) {}
@@ -22,7 +22,7 @@ export class CarListComponent implements OnInit {
       )
       .subscribe(
         val => {
-          this.car = val;
+          this.cars = val;
           this.loading = false;
         },
         err => {
