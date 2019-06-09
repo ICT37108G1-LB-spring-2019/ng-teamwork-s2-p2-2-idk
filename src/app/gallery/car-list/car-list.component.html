@@ -1,0 +1,4 @@
+<div class="row">
+  <app-spinner *ngIf="loading"></app-spinner>
+  <app-car *ngFor="let car of cars" [car]="car"></app-car>
+</div>

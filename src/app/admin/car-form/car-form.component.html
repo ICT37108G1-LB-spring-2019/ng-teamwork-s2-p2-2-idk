@@ -1,0 +1,48 @@
+<app-alert *ngIf="!isValid" type="danger" message="Form not valid!"></app-alert>
+
+<form [formGroup]="carForm" (ngSubmit)="submitForm(carForm)">
+  <div class="form-group">
+    <label for="info">Car Info</label>
+    <textarea
+      name="info"
+      id="info"
+      rows="3"
+      class="form-control"
+      [formControl]="carForm.controls['info']"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="imageUrl">Car Image Url</label>
+    <input
+      type="text"
+      class="form-control"
+      id="imageUrl"
+      placeholder="https://www.photo.com/gtu"
+      [formControl]="carForm.controls['imageUrl']"
+    />
+
+    <img
+      *ngIf="carForm.controls['imageUrl'].value"
+      [src]="carForm.controls['imageUrl'].value"
+      alt="..."
+      class="img-thumbnail m-4"
+      style="width: 250px; height:250px;"
+    />
+  </div>
+  <div class="form-group" *ngIf="features && features.length > 0">
+    <label for="features">Car Features</label>
+    <select
+      multiple
+      class="form-control"
+      id="features"
+      [formControl]="carForm.controls['features']"
+    >
+      <option [value]="feature" *ngFor="let feature of features">
+        {{ feature }}
+      </option>
+    </select>
+  </div>
+
+  <button class="btn btn-success mt-2" type="submit">Submit</button>
+</form>

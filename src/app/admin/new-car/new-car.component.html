@@ -1,0 +1,7 @@
+<h3 class="mb-4">Add new Car</h3>
+<app-alert
+  type="success"
+  *ngIf="isValid"
+  message="New car added succesfuly!"
+></app-alert>
+<app-car-form (car)="addCar($event)"></app-car-form>

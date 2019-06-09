@@ -1,0 +1,9 @@
+<h3 class="mb-4">Edit Car</h3>
+
+<app-alert *ngIf="isValid" type="success" message="Car  was updated!">
+</app-alert>
+<app-car-form
+  [editCar]="car"
+  *ngIf="car"
+  (car)="updateCar($event)"
+></app-car-form>
